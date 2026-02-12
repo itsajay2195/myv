@@ -8,14 +8,16 @@ const PETALS = Array.from({ length: 18 }, (_, i) => ({
   size: 10 + Math.random() * 14,
 }));
 
-function HeartBurst() {
-  const hearts = Array.from({ length: 16 }, (_, i) => ({
+const hearts = Array.from({ length: 16 }, (_, i) => ({
     id: i,
     angle: (i / 16) * 360,
     dist: 80 + Math.random() * 80,
     size: 18 + Math.random() * 18,
     delay: Math.random() * 0.3,
-  }));
+ }));
+
+function HeartBurst() {
+ 
   return (
     <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 100, display: "flex", alignItems: "center", justifyContent: "center" }}>
       {hearts.map((h) => (
