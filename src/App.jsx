@@ -34,12 +34,6 @@ function HeartBurst() {
 }
 
 export default function Valentine() {
-  const handleYes = () => {
-  setSaid(true);
-  emailjs.send("service_0kanvue", "template_r8lyyn7", {
-    message: "She said YES!! 💕🎉",
-  }, "wpfs8K0lU3Nxv0zmc");
-};
   const [said, setSaid] = useState(false);
   const [yesScale, setYesScale] = useState(1);
   const [noPos, setNoPos] = useState(null); // null = inline, {x,y} = floating
@@ -81,6 +75,12 @@ export default function Valentine() {
     setYesScale((s) => Math.min(s + 0.1, 2.0));
   };
 
+  const handleYes = () => {
+    setSaid(true);
+    emailjs.send("service_0kanvue", "template_r8lyyn7", {
+      message: "She said YES!! 💕🎉",
+    }, "wpfs8K0lU3Nxv0zmc");
+  };
   return (
     <>
       <style>{`
