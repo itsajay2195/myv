@@ -9,25 +9,39 @@ const PETALS = Array.from({ length: 18 }, (_, i) => ({
 }));
 
 const hearts = Array.from({ length: 16 }, (_, i) => ({
-    id: i,
-    angle: (i / 16) * 360,
-    dist: 80 + Math.random() * 80,
-    size: 18 + Math.random() * 18,
-    delay: Math.random() * 0.3,
- }));
+  id: i,
+  angle: (i / 16) * 360,
+  dist: 80 + Math.random() * 80,
+  size: 18 + Math.random() * 18,
+  delay: Math.random() * 0.3,
+}));
 
 function HeartBurst() {
- 
   return (
-    <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 100, display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        pointerEvents: "none",
+        zIndex: 100,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       {hearts.map((h) => (
-        <span key={h.id} style={{
-          position: "absolute",
-          fontSize: h.size,
-          animation: `burst 1.2s ${h.delay}s ease-out forwards`,
-          "--angle": `${h.angle}deg`,
-          "--dist": `${h.dist}px`,
-        }}>❤️</span>
+        <span
+          key={h.id}
+          style={{
+            position: "absolute",
+            fontSize: h.size,
+            animation: `burst 1.2s ${h.delay}s ease-out forwards`,
+            "--angle": `${h.angle}deg`,
+            "--dist": `${h.dist}px`,
+          }}
+        >
+          ❤️
+        </span>
       ))}
     </div>
   );
@@ -77,9 +91,14 @@ export default function Valentine() {
 
   const handleYes = () => {
     setSaid(true);
-    emailjs.send("service_0kanvue", "template_r8lyyn7", {
-      message: "She said YES!! 💕🎉",
-    }, "wpfs8K0lU3Nxv0zmc");
+    emailjs.send(
+      "service_0kanvue",
+      "template_r8lyyn7",
+      {
+        message: "She said YES!! 💕🎉",
+      },
+      "wpfs8K0lU3Nxv0zmc",
+    );
   };
   return (
     <>
@@ -212,42 +231,68 @@ export default function Valentine() {
 
       {/* Falling petals */}
       {PETALS.map((p) => (
-        <div key={p.id} style={{
-          position: "fixed",
-          left: `${p.left}%`,
-          top: "-30px",
-          fontSize: `${p.size}px`,
-          opacity: 0.65,
-          pointerEvents: "none",
-          animation: `fall ${p.duration}s ${p.delay}s linear infinite`,
-          zIndex: 0,
-        }}>🌸</div>
+        <div
+          key={p.id}
+          style={{
+            position: "fixed",
+            left: `${p.left}%`,
+            top: "-30px",
+            fontSize: `${p.size}px`,
+            opacity: 0.65,
+            pointerEvents: "none",
+            animation: `fall ${p.duration}s ${p.delay}s linear infinite`,
+            zIndex: 0,
+          }}
+        >
+          🌸
+        </div>
       ))}
 
       {said && <HeartBurst />}
 
-      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: 24, position: "relative" }}>
+      <div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: 24,
+          position: "relative",
+        }}
+      >
         <div className="card" ref={cardRef}>
           {!said ? (
             <>
               <span className="heart-deco">💌</span>
               <p className="date-label">Valentine's Day · February 14</p>
               <p className="headline">
-                Hi <span className="name">Pooja</span>. This is Ajay, we connected on Hinge. we might have missed
-                this Valentine's. But I'd love to celebrate the next one with
-                you… <em style={{ color: "#c94068" }}>maybe forever.</em>
-                <br /><br />
+                Hi <span className="name">Pooja</span>, this is Ajay. We
+                connected on Hinge. We might have missed this Valentine’s, but
+                I’d love to celebrate the next one with you…{" "}
+                <em style={{ color: "#c94068" }}>maybe forever.</em>
+                <br />
+                <br />
                 Will you be my Valentine?
               </p>
 
               {/* YES always in normal flow */}
-              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 20 }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: 20,
+                }}
+              >
                 <button
                   className="btn-yes"
-                  style={{ transform: `scale(${yesScale})`, transformOrigin: "center" }}
+                  style={{
+                    transform: `scale(${yesScale})`,
+                    transformOrigin: "center",
+                  }}
                   onClick={() => {
-                    setSaid(true)
-                    handleYes()
+                    setSaid(true);
+                    handleYes();
                   }}
                 >
                   Yes! 💕
@@ -259,7 +304,10 @@ export default function Valentine() {
                     ref={noRef}
                     className="btn-no"
                     onMouseEnter={moveNo}
-                    onTouchStart={(e) => { e.preventDefault(); moveNo(); }}
+                    onTouchStart={(e) => {
+                      e.preventDefault();
+                      moveNo();
+                    }}
                   >
                     No
                   </button>
@@ -273,7 +321,10 @@ export default function Valentine() {
                   className="btn-no-floating"
                   style={{ left: noPos.x, top: noPos.y }}
                   onMouseEnter={moveNo}
-                  onTouchStart={(e) => { e.preventDefault(); moveNo(); }}
+                  onTouchStart={(e) => {
+                    e.preventDefault();
+                    moveNo();
+                  }}
                 >
                   No
                 </button>
@@ -283,7 +334,11 @@ export default function Valentine() {
             <div className="yes-scene">
               <span className="yes-big">🥂</span>
               <p className="yes-title">She said yes!! 🎉</p>
-              <p className="yes-sub">Here's to the next Valentine's,<br />and every one after that. 💕</p>
+              <p className="yes-sub">
+                Here's to the next Valentine's,
+                <br />
+                and every one after that. 💕
+              </p>
             </div>
           )}
         </div>
@@ -291,7 +346,3 @@ export default function Valentine() {
     </>
   );
 }
-
-
-
-
