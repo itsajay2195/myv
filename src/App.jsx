@@ -173,15 +173,15 @@ export default function App() {
               <br />
               <br />
               I’d like to stay in touch. Talk sometimes and get to know each
-              other slowly… no pressure at all 🙂
+              other slowly… no pressure at all
               <br />
               <br />
-              Let’s upgrade from ‘hi’ to actual conversation 😄
+              Let’s upgrade from ‘hi’ to actual conversation
             </div>
 
             <div className="btn-stack">
               <button className="btn-yes" onClick={handleYes}>
-                Okay Matladuthaam 🙂
+                Okay Matladuthaam
               </button>
 
               <button
@@ -204,7 +204,7 @@ export default function App() {
               className="rajini-img"
             />
 
-            <div className="yes-title">Magizhchi 🙂</div>
+            <div className="yes-title">Magizhchi🙂</div>
 
             <div className="yes-text">
               Happy we’ll stay in touch.
@@ -222,7 +222,7 @@ export default function App() {
               <br />
               <br />
               It was really nice connecting with you. Wishing you good things
-              always 🌟
+              always
             </div>
           </div>
         )}
