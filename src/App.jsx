@@ -187,7 +187,7 @@ export default function App() {
               <button
                 className="btn-no"
                 style={{ opacity: noOpacity, transform: `scale(${noScale})` }}
-                onMouseEnter={handleNoHover}
+                onClick={handleNoHover}
               >
                 Konchem time teesukundam
               </button>
